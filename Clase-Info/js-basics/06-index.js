@@ -259,7 +259,7 @@
 
 
 
-/** --------------- ARRAY DESTRUCTURING ---------------------
+/**  ARRAY DESTRUCTURING 
  * Se extrae y se asigna a la variable en una sola linea.
  * Puedo saltear elementos
  * Se crea con corchetes [] (igual que en python)
@@ -296,15 +296,35 @@
  * Es una variable (como la funcion) con clave-valor. Puedo usar const o let.
  * Coleccion de informacion relacionada entre si almacenada en la estructura que tiene clave-valor.
  * Se crea con llaves.
- * Si la clave es un string usar ., si la clave es un numero usar [] para acceder a las propiedades
+ * Si la clave es un string usar ., si la clave no es un string usar [] para acceder a las propiedades
  * 
  */
+
+const consola = {
+    log(message) {
+        console.log(message);
+    },
+};
+
+consola.log("hola")
+
 
 const persona = {
     name: "Ivan",
     surname: "Servilla",
     age: 26,
     0: 'esto es muy raro',
+    address: {
+        street: "Falsa",
+        number: 123,
+    },
+    fruitsFavourites: ["manzana", "kiwi"],
+    sayHi: function() { //Agregamos metodo
+        console.log("Holaa");
+    },
+    sayGoodbay() {
+        console.log("Chauu");
+    },
 };
 
 console.log(typeof persona); 
@@ -318,7 +338,11 @@ console.log(persona.name);
 console.log(persona.surname);
 console.log(persona.age);
 console.log(persona[0]); // Los corchetes se suelen usar cuando la clave es un numero (caso raro)
+persona.sayHi();
+persona.sayGoodbay();
+consola.log(persona.address.street);
 
-
+//Arrays Destructuring
+const {name, age: edad} = persona;
 
 
